@@ -11,7 +11,7 @@ import com.hacker.quizapp.model.Question;
 @Repository
 public interface QuestionDAO extends JpaRepository<Question, Integer>{
 
-	@Query(value = "SELECT * FROM question WHERE qCategory = :category ORDER BY RAND() LIMIT :numberOfQuestions", nativeQuery = true)
+	@Query(value = "SELECT * FROM question WHERE q_category = :category ORDER BY RAND() LIMIT :numberOfQuestions", nativeQuery = true)
 	List<Question> generateQuestions(String category, int numberOfQuestions);
 
 }
