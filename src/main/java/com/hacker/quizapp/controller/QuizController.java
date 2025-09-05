@@ -8,11 +8,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hacker.quizapp.model.QuestionWraper;
+import com.hacker.quizapp.model.Response;
 import com.hacker.quizapp.service.QuizService;
 
 @RestController
@@ -35,4 +37,11 @@ public class QuizController {
 		List<QuestionWraper> questions = service.getQuiz(quizId);
 		return new ResponseEntity<>(questions, HttpStatus.OK);
 	}
+	
+	@PostMapping("/submit")
+	public ResponseEntity<Integer> submitAnswer(@RequestBody List<Response> answeres){
+		Integer result = service.checkAnsers(answeres);
+		return new ResponseEntity<>(result, HttpStatus.OK);
+	}
+	
 }

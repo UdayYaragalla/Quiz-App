@@ -12,6 +12,7 @@ import com.hacker.quizapp.dao.QuizDAO;
 import com.hacker.quizapp.model.Question;
 import com.hacker.quizapp.model.QuestionWraper;
 import com.hacker.quizapp.model.Quiz;
+import com.hacker.quizapp.model.Response;
 
 @Service
 public class QuizService {
@@ -50,5 +51,15 @@ public class QuizService {
 				.collect(Collectors.toList());
 		
 		return questionWraper;
+	}
+	public Integer checkAnsers(List<Response> answeres) {
+		long result = answeres.stream().filter(ans -> {
+			int id = ans.getQuestionId();
+			String actualAnswer = ans.getOption();
+			Optional<Question> question = questionDAO.findById(id);
+			String expectedAnswer = question.get().getCurrectOption();
+			return actualAnswer.equals(expectedAnswer);
+		}).count();
+		return (int)result;
 	}
 }
