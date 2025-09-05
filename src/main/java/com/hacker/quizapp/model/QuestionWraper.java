@@ -18,12 +18,13 @@ public class QuestionWraper {
 		this.option3 = option3;
 		this.option4 = option4;
 	}
-	public int getQuizId() {
+
+	public int getqId() {
 		return qId;
 	}
-	public void setQuizId(int qId) {
+	public void setqId(int qId) {
 		this.qId = qId;
-	}
+	} 
 	public String getqTitle() {
 		return qTitle;
 	}
