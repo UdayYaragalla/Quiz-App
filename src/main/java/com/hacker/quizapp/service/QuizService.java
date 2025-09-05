@@ -52,7 +52,6 @@ public class QuizService {
 		
 		return questionWraper;
 	}
-
 	public Integer checkAnsers(List<Response> answeres) {
 		long result = answeres.stream().filter(ans -> {
 			int id = ans.getQuestionId();
@@ -63,5 +62,4 @@ public class QuizService {
 		}).count();
 		return (int)result;
 	}
-
 }

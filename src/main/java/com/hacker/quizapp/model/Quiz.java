@@ -2,8 +2,6 @@ package com.hacker.quizapp.model;
 
 import java.util.List;
 
-import org.hibernate.annotations.ManyToAny;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -44,5 +42,4 @@ public class Quiz {
 	public void setCategory(String category) {
 		this.category = category;
 	}
-	
 }
